@@ -45,7 +45,7 @@ def arithmetic_arranger(problems, option = False):
     line2 = f"{operation[1]} {operation[2]}"
     line2 = f'{line2:>{width}}'
     separator = f"{f'-'*width}"
-    print(separator)
+
     answer= ''
     if option:
       answer = str(eval(problem))
@@ -63,8 +63,8 @@ def arithmetic_arranger(problems, option = False):
       separator_row += separator      
       
   if option:    
-    arranged_problems = first_row+'\n'+second_row+'\n'+separator+'\n'+answer_row  
+    arranged_problems = first_row+'\n'+second_row+'\n'+separator_row+'\n'+answer_row  
   else:
-    arranged_problems = first_row+'\n'+second_row+'\n'+separator
+    arranged_problems = first_row+'\n'+second_row+'\n'+separator_row
   return arranged_problems
 
