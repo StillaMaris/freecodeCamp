@@ -1,4 +1,4 @@
-def arithmetic_arranger(problems):
+def arithmetic_arranger(problems, option = False):
   '''
     Arrange the problems giving back a formatted string.
     exe: problems = ["32 + 698", "3801 - 2"]
@@ -10,7 +10,8 @@ def arithmetic_arranger(problems):
   
   first_row = ""
   second_row = ""
-  separator = ""
+  separator_row = ""
+  answer_row = ""
   
   #Non devo avere più di 5 problemi
   num_problems = len(problems)
@@ -21,8 +22,8 @@ def arithmetic_arranger(problems):
   #Le uniche operazioni possibili sono + e -
   #per farlo devo -> parse the string
   possibile_operation = {'+', '-'}  #set of operation
-  for index, values in enumerate(problems):
-    operation = values.split(' ')  #['32', '+', '698']
+  for problem in problems:
+    operation = problem.split(' ')  #['32', '+', '698']
 
     if operation[1] not in possibile_operation:
       arranged_problems = "Error: Operator must be '+' or '-'."
@@ -30,30 +31,40 @@ def arithmetic_arranger(problems):
   
     if operation[0].isdigit() and operation[2].isdigit() != True:
       return "Error: Numbers must only contain digits."
-    else:
-      value_1 = int(operation[0])
-      value_2 = int(operation[2])
       
 
     if (len(operation[0]) > 4 or len(operation[2])) > 4 != False:
       arranged_problems = "Error: Numbers cannot be more than four digits."
       return arranged_problems
     
+    #identare le stringhe
+    largest_value = max(len(operation[0]), len(operation[2]))
+    width = largest_value + 2
     
-    #take the max lenght of operands in the operation
-    
-    longest_value  = max(len(operation[0]), len(operation[2]))
-    width = longest_value + 2 
-    width_sign_operand = len(operation[0])- len(operation[2])
-    
-    #add spaces to each line
-    line_1 = f"{operation[0]:>{width}}"
-    first_row += line_1 + ' '*4
-    
-    line_2 = f'{operation[1]} '+ ' '*width_sign_operand + f'{operation[2]}'
-    second_row += f"{line_2:>{width}}" + ' '*4 
-    separator += '-'*width + ' '*4 
-    
-  arranged_problems = first_row+'\n'+second_row+'\n'+separator 
-
+    line1 = f"{operation[0]:>{width}}"
+    line2 = f"{operation[1]} {operation[2]}"
+    line2 = f'{line2:>{width}}'
+    separator = f"{f'-'*width}"
+    print(separator)
+    answer= ''
+    if option:
+      answer = str(eval(problem))
+      answer = f'{answer:>{width}}'
+          
+    if problem != problem[-1]:
+      first_row += line1 + ' '*4
+      second_row += line2 + ' '*4
+      answer_row += answer + ' '*4
+      separator_row += separator + ' '*4
+    else:
+      first_row += line1 
+      second_row += line2 
+      answer_row += answer 
+      separator_row += separator      
+      
+  if option:    
+    arranged_problems = first_row+'\n'+second_row+'\n'+separator+'\n'+answer_row  
+  else:
+    arranged_problems = first_row+'\n'+second_row+'\n'+separator
   return arranged_problems
+

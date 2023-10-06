@@ -9,5 +9,6 @@ print(arithmetic_arranger([
     "123 + 49"
 ]))
 
-# Run unit tests automatically
-main(['-vv'])
+
+#Run unit tests automatically
+#main(['-vv'])
