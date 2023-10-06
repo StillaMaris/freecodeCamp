@@ -6,7 +6,7 @@ print(arithmetic_arranger([
     "32 + 696",
     "3801 - 2",
     "45 + 43",
-    "123 + 49",
+    "123 + 49"
 ]))
 
 # Run unit tests automatically
