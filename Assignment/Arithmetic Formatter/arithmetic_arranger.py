@@ -48,16 +48,12 @@ def arithmetic_arranger(problems):
     
     #add spaces to each line
     line_1 = f"{operation[0]:>{width}}"
-    first_row = first_row + ' '*4 + line_1
+    first_row += line_1 + ' '*4
     
     line_2 = f'{operation[1]} '+ ' '*width_sign_operand + f'{operation[2]}'
-    second_row += ' '*4 + f"{line_2:>{width}}"
+    second_row += f"{line_2:>{width}}" + ' '*4 
+    separator += '-'*width + ' '*4 
     
-    separator += ' '*4 + '-'*width 
-    
-    arranged_problems = first_row+'\n'+second_row+'\n'+separator 
-  
-    #line_2 = f'{operation[1]} '+ ' '*width_sign_operand + f'{operation[2]}' 
-    #output = f"{operation[0]:>{width}}\n{line_2:>{width}} \n{'-'*width}"
+  arranged_problems = first_row+'\n'+second_row+'\n'+separator 
 
   return arranged_problems
