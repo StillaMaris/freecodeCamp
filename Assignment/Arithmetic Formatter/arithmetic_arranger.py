@@ -39,12 +39,10 @@ def arithmetic_arranger(problems, option = False):
     
     #identare le stringhe
     largest_value = max(len(operation[0]), len(operation[2]))
-    width_sign_operand = 1+ len(operation[0])- len(operation[2])   
     width = largest_value + 2
     
     line1 = f"{operation[0]:>{width}}"
-    line2 = f"{operation[1]}"+" "*width_sign_operand+f"{operation[2]}"
-    line2 = f'{line2:>{width}}'
+    line2 = f"{operation[1]}"+f'{f"{operation[2]}":>{width-1}}'
     separator = f"{f'-'*width}"
 
     answer= ''

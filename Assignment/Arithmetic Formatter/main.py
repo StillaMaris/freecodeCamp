@@ -11,4 +11,4 @@ print(arithmetic_arranger([
 
 
 #Run unit tests automatically
-#main(['-vv'])
+main(['-vv'])
