@@ -70,18 +70,4 @@ def add_time(start, duration, starting_day_of_week=None):
   elif days > 1:
     new_time += f" ({days} days later)"
 
-  
-      
-  
-   
-  
-    
-  
-    
-    
-  
-  
-  
-  
-  
   return new_time
